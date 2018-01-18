@@ -1,0 +1,42 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.box_check_update = false
+  config.vm.provision "shell", path: "bootstrap-hosts.sh"
+
+  # Define hosta
+  config.vm.define :hosta do |hosta_config|
+    config.vm.box = "centos/7"
+    hosta_config.vm.provider :libvirt do |domain|
+      domain.cpu_mode = 'host-passthrough'
+      domain.memory = 512
+    end
+    hosta_config.vm.host_name = 'hosta.example.com'
+    hosta_config.vm.network "private_network", ip: "192.168.50.10"
+  end
+  
+  # Define hostb
+  config.vm.define :hostb do |hostb_config|
+    hostb_config.vm.box = "centos/7"
+    hostb_config.vm.provider :libvirt do |domain|
+      domain.cpu_mode = 'host-passthrough'
+      domain.memory = 512
+    end
+    hostb_config.vm.host_name = 'hostb.example.com'
+    hostb_config.vm.network "private_network", ip: "192.168.50.11"
+  end
+
+  # Define hostc
+  config.vm.define :hostc do |hostc_config|
+    hostc_config.vm.box = "centos/7"
+    hostc_config.vm.provider :libvirt do |domain|
+      domain.cpu_mode = 'host-passthrough'
+      domain.memory = 512
+    end
+    hostc_config.vm.host_name = 'hostc.example.com'
+    hostc_config.vm.network "private_network", ip: "192.168.50.12"
+  end
+#Closing global config
+end
