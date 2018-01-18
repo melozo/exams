@@ -1,4 +1,4 @@
-# exams
+# Exam notes
 
-This is just some notes on taking different exams
-Mostly guides on how to set up Lab environment
+This is just some notes on taking different exams.  
+I think I'll store here lab setup guides and notes.  
