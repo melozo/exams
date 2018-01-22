@@ -41,7 +41,7 @@ We will be using multicasting for fencing, so to set up server:
     ha_hostb                         1e5443c1-6c74-4abe-9352-c3f3623e9ba2 on
     ha_hostc                         5462eb4f-6cc5-4c45-bf39-78c79d5fb0bc on
 ```
-    
+
 * Generate key for fencing:
 ```
     dd if=/dev/random of=/etc/cluster/fence_xvm.key bs=4094 count=1
@@ -64,4 +64,23 @@ Current machine states:
     hosta                     running (libvirt)
     hostb                     running (libvirt)
     hostc                     running (libvirt)
+```
+
+## Configuring nodes as postfix null clients
+
+One of the topics mentions setting up cluster notifications. These notification will be sent via email.
+We will have to set up postfix as null client and install mailx package(required by MailTo resource):
+
+```
+    postconf -e inet_interfaces=loopback-only
+    postconf -e relayhost=[192.168.50.1]
+    postconf -e mydestination=''
+
+    yum -y install mailx
+```
+
+Check that emails are working by executing following command:
+
+```
+    echo "Hello from $(hostname)" | mail -s "Test" root@ha-kvm.example.com
 ```
