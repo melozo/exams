@@ -86,9 +86,9 @@ Check that emails are working by executing following command:
 ```
 
 ## Useful links
-[GFS2 filesystem guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/index)
-[Multipath guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/dm_multipath/index)
-[High availability administration guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-[High availability reference guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-[Setting up libvirt fencing](https://www.unixarena.com/2016/01/rhel-7-configure-fencing-pacemaker.html)
+[GFS2 filesystem guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/index)  
+[Multipath guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/dm_multipath/index)  
+[High availability administration guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)  
+[High availability reference guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)  
+[Setting up libvirt fencing](https://www.unixarena.com/2016/01/rhel-7-configure-fencing-pacemaker.html)  
 
