@@ -85,6 +85,28 @@ Check that emails are working by executing following command:
     echo "Hello from $(hostname)" | mail -s "Test" root@ha-kvm.example.com
 ```
 
+## Found issues
+
+It's possible that you'll face error while creating LV due to previously create VG on ISCSI storage.
+To solve this issue, find out old VG:
+
+```
+    dmsetup ls | grep clustervg
+```
+
+Remove it:
+
+```
+    dmsetup remove clustervg-clusterlv
+```
+
+Check it again, and VG should be gone.
+Now try the pvcreate command again:
+
+```
+pvcreate /dev/mapper/clusterstorage
+Physical volume "/dev/mapper/clusterstorage" successfully created
+```
 ## Useful links
 [GFS2 filesystem guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/index)  
 [Multipath guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/dm_multipath/index)  
